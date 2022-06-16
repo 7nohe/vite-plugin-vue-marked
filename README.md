@@ -10,7 +10,7 @@ This plugin allows you to use `markdown` blocks in your Vue SFC with Vite
 
 Install the pacakge
 ```bash
-npm install -D vite-plugin-vue-marked
+npm install -D @7nohe/vite-plugin-vue-marked
 ```
 
 Add to your `vite.config.ts`
