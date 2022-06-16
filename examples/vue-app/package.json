@@ -1,0 +1,21 @@
+{
+  "name": "@7nohe/vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "highlight.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "@7nohe/vite-plugin-vue-marked": "workspace:*",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}

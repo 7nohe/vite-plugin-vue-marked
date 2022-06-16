@@ -1,0 +1,47 @@
+{
+  "name": "@7nohe/vite-plugin-vue-marked",
+  "description": "Vue SFC Markdown Block",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "7nohe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7nohe/vite-plugin-vue-marked"
+  },
+  "homepage": "https://github.com/7nohe/vite-plugin-vue-marked",
+  "bugs": "https://github.com/7nohe/vite-plugin-vue-marked/issues",
+  "files": [
+    "dist",
+    "client.d.ts"
+  ],
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "prepublishOnly": "npm run build",
+    "release": "npx git-ensure -a && npx bumpp --commit --tag --push",
+    "preview": "tsup src/index.ts --dts --format cjs,esm && npm -C vue-app run dev"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.2.37",
+    "marked": "^4.0.17"
+  },
+  "peerDependencies": {
+    "vite": "^2.9.12",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.1",
+    "@babel/parser": "^7.18.5",
+    "@types/marked": "^4.0.3",
+    "@vue/shared": "^3.2.37",
+    "eslint": "^8.17.0",
+    "rollup": "^2.75.6",
+    "tsup": "^6.1.2",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12",
+    "vue": "^3.2.37"
+  }
+}
