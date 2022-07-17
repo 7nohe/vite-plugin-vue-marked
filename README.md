@@ -1,10 +1,7 @@
 # vite-plugin-vue-marked
 
-### **⚠️ This Plugin is still in Development**
-
 This plugin allows you to use `markdown` blocks in your Vue SFC with Vite
-
-### **⚠️ This plugin currently only works with the \<script setup> format**
+**⚠️ This plugin currently only works with the \<script setup> format**
 
 ## Install
 
