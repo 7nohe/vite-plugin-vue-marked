@@ -1,13 +1,18 @@
 {
   "name": "@7nohe/vite-plugin-vue-marked",
   "description": "Vue SFC Markdown Block",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "author": "7nohe",
-  "keywords": ["vue", "vite", "vue-marked", "markdown"],
+  "keywords": [
+    "vue",
+    "vite",
+    "vue-marked",
+    "markdown"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/7nohe/vite-plugin-vue-marked"
