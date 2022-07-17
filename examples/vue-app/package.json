@@ -8,14 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25",
-    "highlight.js": "^11.5.1"
+    "highlight.js": "^11.6.0",
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@7nohe/vite-plugin-vue-marked": "workspace:*",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
+    "@vitejs/plugin-vue": "^3.0.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vue-tsc": "^0.38.8"
   }
 }
