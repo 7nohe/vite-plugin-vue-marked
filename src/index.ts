@@ -2,25 +2,24 @@ import type { Plugin } from "vite";
 import { parse } from "@vue/compiler-sfc";
 import { marked } from "marked";
 import { parse as _parse } from "@babel/parser";
+import mermaidAPI from "mermaid/mermaidAPI";
 
 const ID = "vmarked";
 
 interface PluginOptions {
-  options?: marked.MarkedOptions;
+  options?: marked.MarkedOptions & { mermaid?: mermaidAPI.Config };
   extensions?: marked.MarkedExtension[];
 }
 
 const initMarked = ({ options, extensions }: PluginOptions) => {
-  const defaultOptions: marked.MarkedOptions = {
-    highlight: (code, lang) => {
+    const highlight = (code: string, lang: string, callback?: ((error: any, code?: string | undefined) => void) | undefined) => {
       if (lang === "mermaid") {
         return `<div class="mermaid" >${code}</div>`;
       }
-      return code;
-    },
-  };
+      return  options ? options.highlight?.(code, lang, callback) : code;
+    };
 
-  if (options) marked.setOptions({ ...options, ...defaultOptions });
+  options ? marked.setOptions({ ...options, highlight }) : marked.setOptions({ highlight });
 
   if (extensions) marked.use(...extensions);
 };
@@ -30,25 +29,29 @@ const replaceCode = (
     start,
     end,
     variableName,
+    mermaidOptions
   }: {
     start: number;
     end: number;
     variableName: string;
+    mermaidOptions?: mermaidAPI.Config;
   },
   code: string,
   markdown: string
 ): string => {
   const html = marked(markdown);
+  const options = {
+    startOnLoad: false,
+    theme: 'base',
+    ...mermaidOptions,
+  }
   const comp = `
   import mermaid from "mermaid";
   import {h, defineComponent, watchEffect} from "vue";
   let _comp = defineComponent({
     name: "Markdown",
     setup() {
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: 'base',
-      })
+      mermaid.initialize(${JSON.stringify(options)})
       return () => h("div", {
         class: "${ID}",
         innerHTML: ${JSON.stringify(html)},
@@ -105,6 +108,7 @@ function vitePluginVueMarked(
                   start: node.start!,
                   end: node.end!,
                   variableName: defaultSpecifier?.local?.name ?? "",
+                  mermaidOptions: options.options?.mermaid,
                 },
                 content,
                 markdown

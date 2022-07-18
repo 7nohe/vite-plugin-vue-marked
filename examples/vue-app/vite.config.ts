@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueMarked from "@7nohe/vite-plugin-vue-marked";
 import hljs from "highlight.js";
+import mermaidAPI from "mermaid/mermaidAPI";
 
 const renderer = {
   heading(text, level) {
@@ -26,6 +27,9 @@ export default defineConfig({
           const language = hljs.getLanguage(lang) ? lang : "plaintext";
           return hljs.highlight(code, { language }).value;
         },
+        mermaid: {
+          theme: 'forest' as mermaidAPI.Config["theme"],
+        }
       },
       extensions: [{ renderer }],
     }),
