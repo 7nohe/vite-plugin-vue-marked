@@ -26,12 +26,12 @@ export default defineConfig({
         highlight: function (code, lang) {
           const language = hljs.getLanguage(lang) ? lang : "plaintext";
           return hljs.highlight(code, { language }).value;
-        },
-        mermaid: {
-          theme: 'forest' as mermaidAPI.Config["theme"],
         }
       },
       extensions: [{ renderer }],
+      mermaid: {
+        theme: 'forest' as mermaidAPI.Config["theme"],
+      }
     }),
   ],
 });

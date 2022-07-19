@@ -7,8 +7,9 @@ import mermaidAPI from "mermaid/mermaidAPI";
 const ID = "vmarked";
 
 interface PluginOptions {
-  options?: marked.MarkedOptions & { mermaid?: mermaidAPI.Config };
+  options?: marked.MarkedOptions;
   extensions?: marked.MarkedExtension[];
+  mermaid?: mermaidAPI.Config;
 }
 
 const initMarked = ({ options, extensions }: PluginOptions) => {
@@ -108,7 +109,7 @@ function vitePluginVueMarked(
                   start: node.start!,
                   end: node.end!,
                   variableName: defaultSpecifier?.local?.name ?? "",
-                  mermaidOptions: options.options?.mermaid,
+                  mermaidOptions: options.mermaid,
                 },
                 content,
                 markdown
