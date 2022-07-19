@@ -86,6 +86,7 @@ An example app is available in the `/examples/vue-app` directory.
 | ------------ | ----------------- | ------------------------------------------------------------------------- |
 | options      | MarkedOptions     | marked's [setOptions config](https://marked.js.org/using_advanced#options)|
 | extensions   | MarkedExtension[] | marked's [marked.use(extension)](https://marked.js.org/using_pro#use)     |
+| mermaid      | mermaidAPI.Config | [Mermaid API Configuration](https://mermaid-js.github.io/mermaid/#/Setup) |
 
 ## License
 

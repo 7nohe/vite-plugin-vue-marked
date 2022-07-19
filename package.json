@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "@vue/compiler-sfc": "^3.2.37",
-    "marked": "^4.0.18"
+    "marked": "^4.0.18",
+    "mermaid": "^9.1.3"
   },
   "peerDependencies": {
     "vite": "^3.0.0",
@@ -42,6 +43,7 @@
     "@antfu/eslint-config": "^0.25.2",
     "@babel/parser": "^7.18.8",
     "@types/marked": "^4.0.3",
+    "@types/mermaid": "^8.2.9",
     "@vue/shared": "^3.2.37",
     "eslint": "^8.20.0",
     "rollup": "^2.77.0",
